@@ -1,0 +1,37 @@
+{
+  "variables": {
+      "source_image": "",
+      "machine_type": "",
+      "region": "",
+      "zone": "",
+      "project_id": "",
+      "ssh_username": "",
+      "image_description": "",
+      "image_name": ""
+    },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "{{user `project_id`}}",
+      "machine_type": "{{user `machine_type`}}",
+      "source_image": "{{user `source_image`}}",
+      "region": "{{user `region`}}",
+      "zone": "{{user `zone`}}",
+      "image_description": "{{user `image_description`}}",
+      "image_name": "{{user `image_name`}}",
+      "disk_size": 16,
+      "disk_type": "pd-ssd",
+      "ssh_username": "{{user `ssh_username`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 10",
+        "uname -a",
+        "uptime"
+      ]
+    }
+  ]
+}

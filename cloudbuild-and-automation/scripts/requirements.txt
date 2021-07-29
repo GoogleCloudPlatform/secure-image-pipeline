@@ -1,0 +1,6 @@
+# Function dependencies, for example:
+# package>=version
+google-auth
+google-cloud-containeranalysis
+google-cloud-build
+envs

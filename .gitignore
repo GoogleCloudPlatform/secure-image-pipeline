@@ -1,0 +1,17 @@
+ancestry.json
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+creds
+temp
+env.sh
+cloudbuild-and-automation/scripts/index.zip
+*/backend.tf
+*/data.tf
+*/terraform.tfvars
+backend.tf
+data.tf
+terraform.tfvars
+*/.terraform.lock.hcl
+.DS_Store
+

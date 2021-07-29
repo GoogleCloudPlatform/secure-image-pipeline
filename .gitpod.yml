@@ -1,0 +1,9 @@
+image: gcr.io/arctiqteam-images/gitpod-utility:v1.0.1
+
+tasks:
+  - init: 'vault login -method=github token=${GITHUB_TOKEN} && mkdir -p ./creds && vault kv get -field="gcp-sa.json" arctiq/shared/projects/p-google-cicd-pipeline-work > creds/gcp-sa.json && mkdir -p ~/.ssh && vault kv get -field="id_rsa" arctiq/users/arctiqtim/github > /home/gitpod/.ssh/id_rsa && sudo chmod -R 0600 ~/.ssh'
+    command: 'vault login -method=github token=${GITHUB_TOKEN} && mkdir -p ./creds && vault kv get -field="gcp-sa.json" arctiq/shared/projects/p-google-cicd-pipeline-work > creds/gcp-sa.json && mkdir -p ~/.ssh && vault kv get -field="id_rsa" arctiq/users/arctiqtim/github > /home/gitpod/.ssh/id_rsa && sudo chmod -R 0600 ~/.ssh'
+
+vscode:
+  extensions:
+    - hashicorp.terraform@2.4.0:D4pbtRtpOsRgGeQetwDTnA==
