@@ -78,9 +78,6 @@ baseimgfct_project_setup (){
 
   gcloud services enable cloudbilling.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
   gcloud services enable cloudresourcemanager.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
-  gcloud services enable cloudbuild.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
-  gcloud services enable cloudkms.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
-  gcloud services enable containeranalysis.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
   gcloud services enable iam.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
 
   set +e
@@ -243,13 +240,7 @@ github_prompt
 echo "Setting up the environment..."
 environment
 
-read -p "Would you like to create a new Google Cloud Project for the base image factory? (y/n):" new_yesno
-if [[ ${new_yesno} == "y" ]]
-then 
-    create_new_project
-else 
-    project_prompt
-fi
+project_prompt
 
 baseimgfct_project_setup
 

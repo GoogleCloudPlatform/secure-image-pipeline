@@ -23,12 +23,10 @@ terraform {
 
 provider "google" {
   region = var.region
-  credentials = file("../creds/gcp-sa.json")
 }
 
 provider "google-beta" {
   region = var.region
-  credentials = file("../creds/gcp-sa.json")
 }
 
 provider "github" {

@@ -46,11 +46,11 @@ variable "billing_account" {
   type        = string
 }
 
-variable "project_folder_id" {
-  description = "The ID of a folder to host this project"
-  type        = string
-  default     = ""
-}
+#variable "project_folder_id" {
+#  description = "The ID of a folder to host this project"
+#  type        = string
+#  default     = ""
+#}
 
 variable "labels" {
   description = "Map of labels for project"
