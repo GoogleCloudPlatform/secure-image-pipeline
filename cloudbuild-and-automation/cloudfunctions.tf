@@ -11,6 +11,7 @@ resource "random_id" "bucket_ids" {
 resource "google_storage_bucket" "functions" {
   project = data.terraform_remote_state.projects_and_repos.outputs.google_project_staging.project_id
   name    = "container-functions-${random_id.bucket_ids.dec}"
+  location   = data.terraform_remote_state.projects_and_repos.outputs.region
 }
 
 resource "google_storage_bucket_iam_member" "member" {

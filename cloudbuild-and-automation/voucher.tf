@@ -43,7 +43,7 @@ resource "null_resource" "voucher_build" {
   provisioner "local-exec" {
     command = <<EOF
       cp ${path.module}/templates/Makefile.voucher.tpl ${path.module}/temp/${data.terraform_remote_state.projects_and_repos.outputs.github_repository_containers.id}/voucher/Makefile
-      cp ${path.module}/templates/signer.go-templatel ${path.module}/temp/${data.terraform_remote_state.projects_and_repos.outputs.github_repository_containers.id}/voucher/v2/signer/kms/signer.go
+      cp ${path.module}/templates/signer.go-template ${path.module}/temp/${data.terraform_remote_state.projects_and_repos.outputs.github_repository_containers.id}/voucher/v2/signer/kms/signer.go
       cd ${path.module}/temp/${data.terraform_remote_state.projects_and_repos.outputs.github_repository_containers.id}/voucher
       gcloud auth activate-service-account --project=${data.terraform_remote_state.projects_and_repos.outputs.google_project_builder.project_id} --key-file=../../../../creds/gcp-sa.json
       gcloud builds submit --config ./tutorials/cloudrun/cloudbuild-server.yaml
