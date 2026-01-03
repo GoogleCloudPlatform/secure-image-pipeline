@@ -25,7 +25,7 @@ gcloud services enable cloudkms.googleapis.com --project ${PROJECT}
 gcloud services enable containeranalysis.googleapis.com --project ${PROJECT}
 
 
-gsutil mb -p ${PROJECT} -l northamerica-northeast1 gs://${PROJECT}-pipeline-work/
+gcloud storage buckets create gs://${PROJECT}-pipeline-work/ --project ${PROJECT} --location northamerica-northeast1
 gcloud iam service-accounts create terraform-project-automation --project ${PROJECT}
 gcloud organizations add-iam-policy-binding 725616416277 \
     --member serviceAccount:terraform-project-automation@${PROJECT}.iam.gserviceaccount.com --role roles/browser

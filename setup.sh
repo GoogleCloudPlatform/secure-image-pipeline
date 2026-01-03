@@ -84,11 +84,11 @@ baseimgfct_project_setup (){
   gcloud services enable iam.googleapis.com --project ${BASEIMGFCT_PROJECT} > /dev/null
 
   set +e
-  gsutil ls gs://${BASEIMGFCT_BUCKET} 2>&1 > /dev/null
+  gcloud storage ls gs://${BASEIMGFCT_BUCKET} 2>&1 > /dev/null
 
   if [ "$?" == "1" ]; then
     set -e
-    gsutil mb -p ${BASEIMGFCT_PROJECT} -l ${BASEIMGFCT_REGION} gs://${BASEIMGFCT_BUCKET}/
+    gcloud storage buckets create gs://${BASEIMGFCT_BUCKET}/ --project=${BASEIMGFCT_PROJECT} --location=${BASEIMGFCT_REGION}
     gcloud iam service-accounts create terraform-project-automation --project ${BASEIMGFCT_PROJECT} > /dev/null
   
     gcloud organizations add-iam-policy-binding ${PARENT_ORGANIZATION} \
